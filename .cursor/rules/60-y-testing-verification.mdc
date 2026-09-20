@@ -1,0 +1,15 @@
+---
+description: Definition-of-done, testing and verification requirements for all Y projects.
+alwaysApply: true
+---
+# Testing / Verification
+- Define expected and failure behavior before implementation.
+- Discover commands from repository config, CI, manifests and scripts; never invent project-standard commands.
+- Run narrowest relevant checks first: syntax/static -> targeted unit -> targeted integration -> affected module/package -> type/lint -> build/package -> smoke/E2E/runtime as relevant.
+- Add regression coverage for bug fixes when a compatible framework exists.
+- Test material negative/error paths and boundaries.
+- Never weaken/skip/delete assertions merely to make tests green unless intended product behavior changed.
+- Distinguish patch-caused failures from pre-existing failures.
+- Reinspect diff after verification.
+- Final report must state exactly what ran, results, and what could not run.
+- Static analysis alone does not prove runtime behavior; a build alone does not prove end-to-end behavior.

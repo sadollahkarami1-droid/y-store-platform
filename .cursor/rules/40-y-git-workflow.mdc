@@ -1,0 +1,13 @@
+---
+description: Git safety, commit hygiene, rollback and source-of-truth rules for all Y repositories.
+alwaysApply: true
+---
+# Git Workflow
+- Before non-trivial edits inspect git status, current branch and baseline commit.
+- Preserve existing user changes; never discard them to simplify work.
+- No force push, destructive reset/clean, history rewrite, rebase, amend or squash on published history unless explicitly requested and safe.
+- Stage/commit only task-related files with coherent descriptive commits.
+- Never commit secrets, local env files, machine caches, build artifacts or unrelated generated output.
+- Review final diff for accidental deletion, formatting churn, dependency drift, debug code and weakened tests.
+- Use the baseline commit as rollback anchor.
+- Never silently switch repo/branch/backup/archive; a user-declared official root/version/hash remains authoritative until changed.

@@ -1,0 +1,16 @@
+---
+description: Python and FastAPI backend engineering conventions for Y services.
+globs: "**/*.py,**/pyproject.toml,**/requirements*.txt,**/poetry.lock,**/uv.lock,**/alembic.ini,**/alembic/**"
+alwaysApply: false
+---
+# Python / FastAPI
+- Inspect actual Python/FastAPI/Pydantic/ORM/package-manager versions first; do not assume APIs.
+- Follow existing typing, linting, formatting, DI and module-layout conventions.
+- Keep route handlers thin when service/domain layers exist; preserve request/response contracts and status/error semantics.
+- Validate external inputs and use structured error handling; do not leak stack traces/secrets.
+- Preserve async correctness; avoid blocking work directly in async request paths without a suitable strategy.
+- Reuse established DB/session dependencies and lifecycle hooks; avoid ad-hoc globals.
+- Avoid import-time side effects and hidden network/database work unless intentionally architectural.
+- Use established configuration/environment mechanisms; never hard-code production secrets.
+- Keep migrations separate from ordinary application startup unless intentionally coupled.
+- Add/update targeted tests for validation, services, API contracts and failure paths; use real repository commands only.

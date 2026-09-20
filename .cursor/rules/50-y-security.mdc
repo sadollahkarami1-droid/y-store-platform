@@ -1,0 +1,16 @@
+---
+description: Security and privacy guardrails that apply to every Y project.
+alwaysApply: true
+---
+# Security
+- Use least privilege for credentials, roles, filesystem access, APIs and database permissions.
+- Never hard-code/expose passwords, tokens, API keys, private keys, signing secrets, production connection strings or secret env values.
+- Never log auth tokens, credentials, payment secrets or unnecessary sensitive data.
+- Preserve authentication and authorization boundaries; authentication does not imply authorization.
+- Validate/normalize untrusted input at trust boundaries.
+- Consider injection, path traversal, XSS, CSRF, SSRF, insecure deserialization, open redirects, unsafe uploads and excessive permissions where relevant.
+- Do not disable TLS/certificate validation, security/permission checks or sandboxing to make tests pass.
+- Use vetted cryptography and secure randomness; never design custom cryptography.
+- Keep CORS, cookie/session, token lifetime, storage and transport restrictive by default and deployment-appropriate.
+- Use secure platform storage for long-lived client secrets where available.
+- Explicitly review attack surface for changes involving identity, payments, private data, networking, file access or remote execution.

@@ -1,0 +1,16 @@
+---
+description: Core engineering operating standard for all Y projects in Cursor Agent.
+alwaysApply: true
+---
+# Y Core Engineering Standard
+- Read and obey the repository-root AGENTS.md before making changes; nested instructions take precedence for their subtree.
+- Treat the current repository and branch as source of truth; record the pre-change commit for non-trivial work.
+- Inspect implementation, callers, tests, configuration, manifests, schemas and nearby patterns before editing.
+- Define an observable success criterion before implementation.
+- Make the smallest coherent change; preserve unrelated behavior and avoid unrelated rewrites, renames and formatting.
+- Never invent inspectable paths, APIs, versions, environment variables, database structure, build commands or conventions.
+- Prefer existing architecture/utilities over new abstractions or duplicate helpers.
+- Do not edit generated/build/vendor output unless the canonical workflow requires it.
+- Establish recovery before risky changes.
+- Verify, review the final diff, and report exactly what was and was not verified.
+- Never claim fixed, tested, deployed, production-ready, backed up or complete unless that action actually occurred.

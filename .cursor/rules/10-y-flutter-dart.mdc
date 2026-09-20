@@ -1,0 +1,18 @@
+---
+description: Flutter and Dart engineering conventions for Y applications.
+globs: "**/*.dart,**/pubspec.yaml,**/analysis_options.yaml,**/android/**,**/ios/**,**/macos/**,**/windows/**,**/linux/**,**/web/**"
+alwaysApply: false
+---
+# Flutter / Dart
+- Preserve existing architecture, state management, dependency injection, navigation and folder conventions.
+- Keep null safety intact; avoid unnecessary null assertions and dynamic typing.
+- Dispose owned controllers, focus nodes, animations, streams and subscriptions.
+- Across async gaps, verify lifecycle safety before using BuildContext/widget state; use mounted checks when required.
+- Avoid blocking the UI isolate with heavy CPU/synchronous I/O.
+- Prefer const/immutability where appropriate without unrelated churn.
+- Keep business logic out of presentation widgets when service/domain/state layers exist.
+- Handle relevant loading, empty, error, offline, retry and cancellation states.
+- Preserve localization and RTL/LTR behavior.
+- Do not hand-edit generated registrants/serialization/localization files; modify their source and regenerate.
+- Verify package compatibility from actual pubspec/lockfile before adding dependencies.
+- Run configured static analysis, targeted tests, and relevant build verification when compilation/platform integration can be affected.

@@ -1,0 +1,16 @@
+---
+description: PostgreSQL, SQL and migration safety rules for Y projects.
+globs: "**/*.sql,**/migrations/**,**/alembic/**,**/*migration*.py,**/*schema*.sql"
+alwaysApply: false
+---
+# PostgreSQL / Data Migrations
+- Apply PostgreSQL guidance only after verifying the repository actually uses PostgreSQL.
+- Treat persistent data as non-replaceable; prefer additive, backward-compatible migrations and staged rollouts.
+- Never drop/truncate production data, rewrite large tables, change column types in-place or remove constraints without explicit recovery planning.
+- Consider transactions, locks, table size, backfill cost, index-build behavior and mixed-version compatibility.
+- Preserve PK/FK/unique/nullability/referential-integrity semantics unless deliberately changing schema.
+- Add indexes only for demonstrated access patterns and account for write/maintenance cost.
+- Parameterize application SQL; never concatenate untrusted input.
+- Make data migrations idempotent/checkpointable when practical and define partial-failure recovery.
+- Verify migrations on a safe environment/test DB before calling them production-ready.
+- Report whether forward migration, recovery/rollback, data preservation and relevant query behavior were actually verified.

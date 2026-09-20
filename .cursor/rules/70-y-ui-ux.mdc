@@ -1,0 +1,17 @@
+---
+description: UI, UX, accessibility and responsive-interface conventions for Y applications.
+globs: "**/*.dart,**/*.tsx,**/*.jsx,**/*.vue,**/*.html,**/*.css,**/*.scss,**/*.sass,**/*.kt,**/*.kts,**/*.swift"
+alwaysApply: false
+---
+# UI / UX
+- Preserve established visual language, spacing, typography, component patterns and navigation unless redesign is requested.
+- Do not introduce unrelated visual redesign during functional work.
+- Keep layouts responsive for supported screens/windows and text scaling.
+- Preserve localization and correct RTL/LTR directionality; avoid hard-coded translated-text-breaking assumptions.
+- Maintain accessibility semantics, labels, focus order, keyboard support and adequate targets where supported.
+- Implement relevant loading, empty, error, disabled, retry, offline and success states.
+- Avoid duplicate UI state and unnecessary rebuild/re-render; follow existing state architecture.
+- Never hide failures behind indefinite spinners or silent fallbacks.
+- Reuse existing design-system components before creating duplicates.
+- Preserve user input/data through transient errors when practical.
+- Update/add golden/screenshot/widget/component tests only for intentional visual behavior changes.
