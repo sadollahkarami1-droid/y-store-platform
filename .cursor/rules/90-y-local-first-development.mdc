@@ -1,0 +1,21 @@
+---
+description: Local-first development standard for the user's primary computer, Cursor and AI coding agents.
+alwaysApply: true
+---
+
+# Y Local-First Development
+- Primary computer is the authoritative execution environment for development, builds and device/emulator testing.
+- Cursor is the primary IDE/local AI workbench. Git is the local safety/version-control layer. GitHub is canonical remote history and recovery point.
+- Prefer inspecting/editing the local checked-out repository whenever local access exists.
+- Before non-trivial work: confirm repo/path, inspect git status, identify branch/baseline, preserve uncommitted work, inspect actual toolchain/manifests.
+- Fetch/pull only when it will not overwrite local work.
+- Run formatters, analyzers, tests, builds, migrations and smoke checks locally when required SDK/runtime exists.
+- Cloud AI output is not evidence that the local app builds/runs.
+- Hardware/platform-dependent behavior should be verified on the relevant local OS/device/emulator when practical.
+- One AI writes to the active worktree at a time. Reviewer starts read-only; if becoming fixer, scope fixes to concrete findings.
+- Keep secrets in local excluded configuration. Never upload .env, signing keys, SSH keys, production credentials, private certificates or private databases to AI services.
+- Redact sensitive values in logs/config excerpts.
+- Keep large build outputs, caches, SDKs, media and generated artifacts out of Git unless explicitly required.
+- For risky work preserve a known-good commit; prefer task branches/worktrees for experiments, broad refactors and migrations.
+- Push only after local verification or with an explicit note of what remains unverified.
+- Local execution evidence outranks assumptions from any AI agent.

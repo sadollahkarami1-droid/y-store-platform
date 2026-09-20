@@ -1,0 +1,17 @@
+---
+description: Multi-agent programming protocol for ChatGPT/Codex, Claude and other AI coding agents in Y projects.
+alwaysApply: true
+---
+
+# Y Multi-Agent Review Protocol
+- Human owner has final authority on product intent, destructive actions, production releases and irreversible decisions.
+- ChatGPT/Codex is the default Lead Programmer; Claude is the default independent Reviewer/Debugger.
+- Only one AI may write to the active worktree at a time. Never run two autonomous agents against the same files concurrently.
+- If parallel experimentation is needed, use separate Git branches/worktrees and merge only after verification.
+- Lead: read AGENTS.md/rules, inspect status/baseline/relevant code, define success, implement the smallest patch, run relevant checks.
+- Reviewer handoff must include goal, baseline commit, changed files, concise diff summary, tests/checks and results, known failures/unknowns, exact review request.
+- Reviewer begins read-only and checks correctness, regressions, security, concurrency, lifecycle, resource leaks, error handling, compatibility, missing tests and unnecessary changes.
+- Reviewer must report concrete findings and must not rewrite code for style preferences.
+- Only verified findings are fixed; fixes stay surgical; relevant checks are re-run.
+- If agents disagree, prefer repository evidence, tests, documented requirements and runtime behavior. Human owner resolves product-intent disputes.
+- Task completion requires requested behavior, relevant verification or explicit disclosure of gaps, final diff review and no unresolved blocker.
