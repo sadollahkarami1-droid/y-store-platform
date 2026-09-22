@@ -83,3 +83,22 @@ UNDERSTAND → INSPECT → DEFINE SUCCESS → PROTECT RECOVERY → MINIMAL CHANG
 
 ## Master Rule
 When speed conflicts with correctness, elegance with compatibility, cleanup with preservation, or assumption with verification, choose CORRECTNESS → COMPATIBILITY → PRESERVATION → VERIFICATION. Make the smallest verified change that solves the actual problem.
+
+## Shared Y Design System
+
+Central UI source of truth: `sadollahkarami1-droid/y_design_system`.
+
+Rules for any new or changed reusable UI:
+
+- Inspect the central Y Design System before creating a new reusable component.
+- Identify the actual application stack first. Do not assume every Y project is Flutter.
+- Flutter consumers should use the Flutter Core after a verified release exists.
+- React/Web consumers should use the Web Core after a verified private distribution path exists.
+- Rust, .NET, Python, native desktop, and other stacks should map the canonical tokens/patterns through a stack-appropriate adapter; never import an incompatible UI runtime.
+- Preserve product-specific business logic, state management, authentication, routing, permissions, payments, networking, persistence, and domain data in the consuming repository.
+- Do not copy/fork a shared component into this repository by default.
+- If a temporary local bridge is unavoidable, document the upstream repository + exact commit, keep the bridge minimal, and include a removal/synchronization plan.
+- Preserve localization, RTL/LTR, accessibility, responsive behavior, loading/error/disabled/success states, and existing callbacks.
+- Production consumers must pin a verified immutable release/version. Do not track `main` or a feature branch.
+- Until the central package is actually verified and released, only prepare reversible integration branches/adapters; do not claim the design-system rollout is complete.
+
